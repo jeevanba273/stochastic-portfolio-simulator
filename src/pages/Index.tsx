@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -250,7 +251,7 @@ const Index = () => {
           
           {/* Footer info */}
           <div className="text-center text-sm text-muted-foreground mt-12">
-            <p>Quantum Portfolio Simulator uses advanced stochastic models to simulate financial asset price paths.</p>
+            <p>Stochastic Portfolio Simulator uses advanced stochastic models to simulate financial asset price paths.</p>
             <p className="mt-1">Built with React, Tailwind CSS and Recharts.</p>
           </div>
         </div>

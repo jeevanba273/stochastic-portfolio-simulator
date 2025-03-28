@@ -26,7 +26,7 @@ export function PortfolioHeader() {
         <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
           <div className="flex items-center space-x-3 mb-2">
             <Sparkles className="h-6 w-6 text-primary animate-pulse-slow" />
-            <h1 className="text-2xl font-bold text-white">Quantum Portfolio Simulator</h1>
+            <h1 className="text-2xl font-bold text-white">Stochastic Portfolio Simulator</h1>
           </div>
           
           <div className="flex flex-wrap gap-2">
