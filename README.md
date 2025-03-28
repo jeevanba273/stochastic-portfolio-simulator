@@ -1,69 +1,110 @@
-# Welcome to your Lovable project
+# Stochastic Portfolio Simulator (Advanced Version)
 
-## Project info
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site/deploys)
 
-**URL**: https://lovable.dev/projects/b350caab-de3a-4547-8ff0-2fc265beb5c5
+Welcome to the **Stochastic Portfolio Simulator** – an interactive Streamlit web application that simulates asset price evolution using advanced stochastic models. Explore dynamic simulations, analyze risk metrics, and export your data with ease!
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Table of Contents
 
-**Use Lovable**
+- [Overview](#overview)
+- [Features](#features)
+- [Models](#models)
+- [Live Demo](#live-demo)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Advanced Features](#advanced-features)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b350caab-de3a-4547-8ff0-2fc265beb5c5) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## Overview
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+This project simulates asset price trajectories using three popular stochastic models in quantitative finance:
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- **Geometric Brownian Motion (GBM)**
+- **Jump-Diffusion**
+- **Heston Model**
 
-Follow these steps:
+Utilizing **stochastic calculus**, **Monte Carlo methods**, and key portfolio risk metrics, the app visualizes simulated price paths, terminal value distributions, and detailed statistics such as **Sharpe Ratio**, **Max Drawdown**, and **Value at Risk (VaR)**.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Features
 
-# Step 3: Install the necessary dependencies.
-npm i
+- **Interactive Simulation:** Adjust parameters and switch between different stochastic models.
+- **Real-time Visualizations:** Dynamic, interactive plots of simulated price paths and distributions.
+- **Comprehensive Risk Metrics:** View expected returns, standard deviation, Sharpe Ratio, Max Drawdown, and VaR.
+- **Data Export:** Easily download your simulation data as a CSV file.
+- **Responsive Design:** Built with Streamlit for a clean and user-friendly interface.
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+---
 
-**Edit a file directly in GitHub**
+## Models
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| **Model**       | **Description**                                                                                                                                          |
+|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **GBM**         | The classic model for asset prices, featuring a log-normal distribution and constant volatility.                                                       |
+| **Jump-Diffusion**  | Enhances GBM by incorporating rare, significant jumps to better simulate market shocks.                                                                  |
+| **Heston**      | Introduces stochastic volatility, providing a closer representation of real market behavior.                                                              |
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Live Demo
 
-## What technologies are used for this project?
+Experience the cutting-edge **Stochastic Portfolio Simulator** in action! Hosted on [**Netlify**](https://your-netlify-link.netlify.app), our live demo brings advanced stochastic models and interactive risk analytics right to your browser.
 
-This project is built with .
+> Dive into dynamic simulations, explore real-time visualizations, and unlock insightful portfolio analytics with just one click!
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+[**Launch the Demo Now!**](https://your-netlify-link.netlify.app)
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/b350caab-de3a-4547-8ff0-2fc265beb5c5) and click on Share -> Publish.
+---
 
-## I want to use a custom domain - is that possible?
+## Installation
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+To run the project locally, ensure you have **Python 3.8+** installed, then follow these steps:
+
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/jeevanba273/stochastic-portfolio-simulator.git
+   cd stochastic-portfolio-simulator
+
+2. **Create and Activate a Virtual Environment:**
+    ```bash
+    python -m venv venv 
+    source venv/bin/activate  # On Windows use: venv\Scripts\activate
+
+3. **Install the Dependencies:**
+    ```bash
+    pip install -r requirements.txt
+
+---
+
+## Usage
+
+1. **Launch the simulator with the following command:**
+    ```bash
+    streamlit run app.py
+
+Once the server starts, open your browser to the provided local URL and explore the simulations!
+
+---
+
+## Advanced Features
+
+- **📊 Sharpe Ratio Calculation:**  
+  *Measure risk-adjusted returns by calculating the Sharpe Ratio based on daily returns.*
+
+- **📉 Max Drawdown Analysis:**  
+  *Evaluate the worst peak-to-trough decline to understand downside risk.*
+
+- **📥 CSV Export:**  
+  *Download detailed simulation data for offline analysis in CSV format.*
+
+- **📈 Interactive Statistics:**  
+  *Access an in-depth view of key simulation metrics with dynamic, interactive displays.*
+
+- **🚀 Upcoming Enhancements:**  
+  *Stay tuned for correlation matrices and multi-asset simulations, adding even more depth to your analysis!*
