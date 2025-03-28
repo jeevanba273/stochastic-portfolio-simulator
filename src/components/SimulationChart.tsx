@@ -159,22 +159,22 @@ export function SimulationChart({
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                   data={lineChartData}
-                  margin={isMobile ? { top: 5, right: 10, left: 0, bottom: 5 } : { top: 5, right: 20, left: 20, bottom: 5 }}
+                  margin={isMobile ? { top: 5, right: 10, left: 5, bottom: 20 } : { top: 5, right: 20, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis 
                     dataKey="time" 
-                    label={isMobile ? {} : { value: 'Years', position: 'insideBottomRight', offset: -5 }}
+                    label={isMobile ? { value: 'Years', position: 'insideBottom', offset: -15, fontSize: 10 } : { value: 'Years', position: 'insideBottomRight', offset: -5 }}
                     stroke="rgba(255,255,255,0.5)"
                     tick={{ fontSize: isMobile ? 10 : 12 }}
-                    tickMargin={isMobile ? 2 : 5}
+                    tickMargin={isMobile ? 5 : 5}
                   />
                   <YAxis 
-                    label={isMobile ? {} : { value: 'Price ($)', angle: -90, position: 'insideLeft' }}
+                    label={isMobile ? { value: 'Price ($)', angle: -90, position: 'insideLeft', offset: 0, fontSize: 10 } : { value: 'Price ($)', angle: -90, position: 'insideLeft' }}
                     stroke="rgba(255,255,255,0.5)"
                     tick={{ fontSize: isMobile ? 10 : 12 }}
                     tickMargin={isMobile ? 2 : 5}
-                    width={isMobile ? 30 : 40}
+                    width={isMobile ? 35 : 40}
                   />
                   <Tooltip content={({ active, payload, label }) => {
                     if (active && payload && payload.length) {
@@ -253,23 +253,23 @@ export function SimulationChart({
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={histogramData}
-                  margin={isMobile ? { top: 5, right: 10, left: 0, bottom: 5 } : { top: 5, right: 20, left: 20, bottom: 5 }}
+                  margin={isMobile ? { top: 5, right: 10, left: 5, bottom: 20 } : { top: 5, right: 20, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis 
                     dataKey="binCenter" 
-                    label={isMobile ? {} : { value: 'Terminal Price ($)', position: 'insideBottomRight', offset: -5 }}
+                    label={isMobile ? { value: 'Terminal Price ($)', position: 'insideBottom', offset: -15, fontSize: 10 } : { value: 'Terminal Price ($)', position: 'insideBottomRight', offset: -5 }}
                     stroke="rgba(255,255,255,0.5)"
                     tickFormatter={(value) => value.toFixed(0)}
                     tick={{ fontSize: isMobile ? 10 : 12 }}
-                    tickMargin={isMobile ? 2 : 5}
+                    tickMargin={isMobile ? 5 : 5}
                   />
                   <YAxis 
-                    label={isMobile ? {} : { value: 'Frequency (%)', angle: -90, position: 'insideLeft' }}
+                    label={isMobile ? { value: 'Frequency (%)', angle: -90, position: 'insideLeft', offset: 0, fontSize: 10 } : { value: 'Frequency (%)', angle: -90, position: 'insideLeft' }}
                     stroke="rgba(255,255,255,0.5)"
                     tick={{ fontSize: isMobile ? 10 : 12 }}
                     tickMargin={isMobile ? 2 : 5}
-                    width={isMobile ? 30 : 40}
+                    width={isMobile ? 35 : 40}
                   />
                   <Tooltip content={CustomHistogramTooltip} />
                   <Bar 
