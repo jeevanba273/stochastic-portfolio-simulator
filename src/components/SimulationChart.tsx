@@ -1,7 +1,22 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Line, LineChart, XAxis, YAxis, Tooltip, ResponsiveContainer, Legend, Area, AreaChart, ComposedChart, Bar, CartesianGrid, TooltipProps } from "recharts";
+import { 
+  Line, 
+  LineChart, 
+  XAxis, 
+  YAxis, 
+  Tooltip, 
+  ResponsiveContainer, 
+  Legend, 
+  Area, 
+  AreaChart, 
+  ComposedChart, 
+  Bar, 
+  BarChart, 
+  CartesianGrid, 
+  TooltipProps 
+} from "recharts";
 import { Button } from "@/components/ui/button";
 import { Download, RefreshCw, ZoomIn } from "lucide-react";
 import { StatisticsSummary } from "@/lib/utils/statistics";
@@ -15,6 +30,15 @@ interface SimulationChartProps {
   onRefresh: () => void;
 }
 
+// Define a proper type for our histogram bin
+interface HistogramBin {
+  binStart: number;
+  binEnd: number;
+  count: number;
+  binCenter: number;
+  percentage: number; // Add the missing percentage property
+}
+
 export function SimulationChart({
   simulations,
   timeHorizon,
@@ -25,7 +49,7 @@ export function SimulationChart({
 }: SimulationChartProps) {
   const [activePathIndex, setActivePathIndex] = useState<number | null>(null);
   const [lineChartData, setLineChartData] = useState<any[]>([]);
-  const [histogramData, setHistogramData] = useState<any[]>([]);
+  const [histogramData, setHistogramData] = useState<HistogramBin[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
   
   // Prepare line chart data
@@ -69,11 +93,12 @@ export function SimulationChart({
     const numBins = 20;
     const binWidth = range / numBins;
     
-    const bins = Array(numBins).fill(0).map((_, i) => ({
+    const bins: HistogramBin[] = Array(numBins).fill(0).map((_, i) => ({
       binStart: min + i * binWidth,
       binEnd: min + (i + 1) * binWidth,
       count: 0,
-      binCenter: min + (i + 0.5) * binWidth
+      binCenter: min + (i + 0.5) * binWidth,
+      percentage: 0 // Initialize with 0
     }));
     
     terminalValues.forEach(value => {
@@ -95,7 +120,7 @@ export function SimulationChart({
   // Custom tooltip for the histogram
   const CustomHistogramTooltip = ({ active, payload }: TooltipProps<number, string>) => {
     if (active && payload && payload.length) {
-      const bin = payload[0].payload;
+      const bin = payload[0].payload as HistogramBin;
       return (
         <div className="glass-card p-2 text-sm">
           <p>{`Range: $${bin.binStart.toFixed(2)} - $${bin.binEnd.toFixed(2)}`}</p>
