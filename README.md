@@ -70,16 +70,13 @@ To run the project locally, ensure you have **Python 3.8+** installed, then foll
    ```bash
    git clone https://github.com/jeevanba273/stochastic-portfolio-simulator.git
    cd stochastic-portfolio-simulator
-
 2. **Create and Activate a Virtual Environment:**
     ```bash
     python -m venv venv 
     source venv/bin/activate  # On Windows use: venv\Scripts\activate
-
 3. **Install the Dependencies:**
     ```bash
     pip install -r requirements.txt
-
 ---
 
 ## Usage
