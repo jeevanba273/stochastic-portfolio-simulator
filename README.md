@@ -1,6 +1,6 @@
-# Stochastic Portfolio Simulator (Advanced Version)
+# Stochastic Portfolio Simulator
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/your-badge-id/deploy-status)](https://app.netlify.com/sites/your-site/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39718829-6fb7-4e7b-ac3a-635d6b0114d3/deploy-status)](https://app.netlify.com/sites/stochastic-portfolio-simulator/deploys)
 
 Welcome to the **Stochastic Portfolio Simulator** – an interactive Streamlit web application that simulates asset price evolution using advanced stochastic models. Explore dynamic simulations, analyze risk metrics, and export your data with ease!
 
@@ -53,11 +53,11 @@ Utilizing **stochastic calculus**, **Monte Carlo methods**, and key portfolio ri
 
 ## Live Demo
 
-Experience the cutting-edge **Stochastic Portfolio Simulator** in action! Hosted on [**Netlify**](https://your-netlify-link.netlify.app), our live demo brings advanced stochastic models and interactive risk analytics right to your browser.
+Experience the cutting-edge **Stochastic Portfolio Simulator** in action! Hosted on [**Netlify**](https://stochastic-portfolio-simulator.netlify.app/), our live demo brings advanced stochastic models and interactive risk analytics right to your browser.
 
 > Dive into dynamic simulations, explore real-time visualizations, and unlock insightful portfolio analytics with just one click!
 
-[**Launch the Demo Now!**](https://your-netlify-link.netlify.app)
+[**Launch the Demo Now!**](https://stochastic-portfolio-simulator.netlify.app/)
 
 
 ---
