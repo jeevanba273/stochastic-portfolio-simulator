@@ -20,6 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Download, RefreshCw, ZoomIn } from "lucide-react";
 import { StatisticsSummary } from "@/lib/utils/statistics";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface SimulationChartProps {
   simulations: number[][];
@@ -36,7 +37,7 @@ interface HistogramBin {
   binEnd: number;
   count: number;
   binCenter: number;
-  percentage: number; // Add the missing percentage property
+  percentage: number;
 }
 
 export function SimulationChart({
@@ -51,6 +52,7 @@ export function SimulationChart({
   const [lineChartData, setLineChartData] = useState<any[]>([]);
   const [histogramData, setHistogramData] = useState<HistogramBin[]>([]);
   const [isExpanded, setIsExpanded] = useState(false);
+  const isMobile = useIsMobile();
   
   // Prepare line chart data
   useEffect(() => {
@@ -157,17 +159,22 @@ export function SimulationChart({
               <ResponsiveContainer width="100%" height="100%">
                 <ComposedChart
                   data={lineChartData}
-                  margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
+                  margin={isMobile ? { top: 5, right: 10, left: 0, bottom: 5 } : { top: 5, right: 20, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis 
                     dataKey="time" 
-                    label={{ value: 'Years', position: 'insideBottomRight', offset: -5 }}
+                    label={isMobile ? {} : { value: 'Years', position: 'insideBottomRight', offset: -5 }}
                     stroke="rgba(255,255,255,0.5)"
+                    tick={{ fontSize: isMobile ? 10 : 12 }}
+                    tickMargin={isMobile ? 2 : 5}
                   />
                   <YAxis 
-                    label={{ value: 'Price ($)', angle: -90, position: 'insideLeft' }}
+                    label={isMobile ? {} : { value: 'Price ($)', angle: -90, position: 'insideLeft' }}
                     stroke="rgba(255,255,255,0.5)"
+                    tick={{ fontSize: isMobile ? 10 : 12 }}
+                    tickMargin={isMobile ? 2 : 5}
+                    width={isMobile ? 30 : 40}
                   />
                   <Tooltip content={({ active, payload, label }) => {
                     if (active && payload && payload.length) {
@@ -246,18 +253,23 @@ export function SimulationChart({
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                   data={histogramData}
-                  margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
+                  margin={isMobile ? { top: 5, right: 10, left: 0, bottom: 5 } : { top: 5, right: 20, left: 20, bottom: 5 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.1)" />
                   <XAxis 
                     dataKey="binCenter" 
-                    label={{ value: 'Terminal Price ($)', position: 'insideBottomRight', offset: -5 }}
+                    label={isMobile ? {} : { value: 'Terminal Price ($)', position: 'insideBottomRight', offset: -5 }}
                     stroke="rgba(255,255,255,0.5)"
                     tickFormatter={(value) => value.toFixed(0)}
+                    tick={{ fontSize: isMobile ? 10 : 12 }}
+                    tickMargin={isMobile ? 2 : 5}
                   />
                   <YAxis 
-                    label={{ value: 'Frequency (%)', angle: -90, position: 'insideLeft' }}
+                    label={isMobile ? {} : { value: 'Frequency (%)', angle: -90, position: 'insideLeft' }}
                     stroke="rgba(255,255,255,0.5)"
+                    tick={{ fontSize: isMobile ? 10 : 12 }}
+                    tickMargin={isMobile ? 2 : 5}
+                    width={isMobile ? 30 : 40}
                   />
                   <Tooltip content={CustomHistogramTooltip} />
                   <Bar 
@@ -265,7 +277,7 @@ export function SimulationChart({
                     fill="hsl(var(--primary))" 
                     opacity={0.8}
                     minPointSize={2}
-                    barSize={15}
+                    barSize={isMobile ? 8 : 15}
                   />
                 </BarChart>
               </ResponsiveContainer>
