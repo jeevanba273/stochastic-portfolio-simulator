@@ -11,6 +11,7 @@ import { simulateJumpDiffusion } from "@/lib/models/jumpDiffusion";
 import { simulateHeston } from "@/lib/models/heston";
 import { calculateStatistics, StatisticsSummary } from "@/lib/utils/statistics";
 import { useToast } from "@/hooks/use-toast";
+import { Github, Linkedin } from "lucide-react";
 
 const Index = () => {
   // State for model selection and parameters
@@ -251,6 +252,26 @@ const Index = () => {
           
           {/* Footer info */}
           <div className="text-center text-sm text-muted-foreground mt-12">
+            <div className="flex justify-center items-center space-x-6 mb-4">
+              <a 
+                href="https://github.com/jeevanba273" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-primary"
+                aria-label="GitHub Profile"
+              >
+                <Github className="h-6 w-6" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/in/jeevanba273/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="transition-colors hover:text-primary"
+                aria-label="LinkedIn Profile"
+              >
+                <Linkedin className="h-6 w-6" />
+              </a>
+            </div>
             <p>Stochastic Portfolio Simulator uses advanced stochastic models to simulate financial asset price paths.</p>
             <p className="mt-1">Built with React, Tailwind CSS and Recharts.</p>
           </div>

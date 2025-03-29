@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Laptop, Moon, Sun } from "lucide-react";
+import { Sparkles, Laptop, Moon, Sun, Github, Linkedin } from "lucide-react";
 
 export function PortfolioHeader() {
   const [currentTime, setCurrentTime] = useState(new Date());
